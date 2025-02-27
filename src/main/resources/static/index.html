@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real Time Route</title>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=
+            "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin="" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #sidebar {
+            width: 25%;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        #sidebar h2, #sidebar h3, #sidebar h4 {
+            margin-top: 0;
+        }
+
+        #sidebar button {
+            margin: 10px 0;
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #sidebar button:hover {
+            background-color: #0056b3;
+        }
+
+        #sidebar input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        #map {
+            width: 75%;
+            height: 100%;
+        }
+
+        #route-info, #dest-shape, #src-shape {
+            margin-bottom: 20px;
+        }
+
+        #route-info p, #route-info ul {
+            margin: 5px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #dest-slider, #src-slider {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>My Real Time Routing Map</h1>
+<div id="container">
+    <div id="sidebar">
+        <h2>Map Tools</h2>
+        <button id="set-location">Set Location</button>
+        <div id="route-info">
+            <h3>Route Information</h3>
+            <p>Estimated Time: <span id="travel-time">-</span></p>
+            <p>Distance: <span id="distance">-</span></p>
+            <label>
+                <input type="checkbox" id="track-checkbox">
+                Enable Real-Time Tracking
+            </label>
+        </div>
+        <div id="dest-shape">
+            <h3>Cover Shape on Destination Location</h3>
+            <label for="dest-slider">Value: <span id="dest-sliderValue">0</span></label>
+            <input type="range" id="dest-slider" min="0" max="100" value="0" step="1">
+        </div>
+        <div id="src-shape">
+            <h3>Cover Shape on User's Location</h3>
+            <label for="src-slider">Value: <span id="src-sliderValue">0</span></label>
+            <input type="range" id="src-slider" min="0" max="100" value="0" step="1">
+        </div>
+    </div>
+    <div id="map"></div>
+</div>
+
+<!-- Get the leaflet JavaScript file -->
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+<script src="https://unpkg.com/@mapbox/polyline@1.1.1/src/polyline.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
