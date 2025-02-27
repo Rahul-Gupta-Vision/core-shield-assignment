@@ -14,3 +14,11 @@ create shapes such as triangles, polygons, etc.
 # How to Run:
 1. Clone this Repo -> (Make sure java is installed on system).
 2. command:  .\mvnw.cmd spring-boot:run
+
+# Run Via Docker
+1.  .\mvnw clean package --> Run this command to create the jar file for project
+2.  docker build -t assignment .
+3.  docker run -p 8080:8080 assignment
+
+# Browser window
+![image](https://github.com/user-attachments/assets/cb4109c9-1b87-4cae-83c7-d59343007664)
